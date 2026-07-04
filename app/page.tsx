@@ -27,9 +27,11 @@ export default function Home() {
         <FeaturedProjects />
         <WebWork />
         <Experience />
-        <Contact />
+        <div className="flex min-h-[100dvh] flex-col">
+          <Contact />
+          <Footer />
+        </div>
       </main>
-      <Footer />
     </>
   );
 }

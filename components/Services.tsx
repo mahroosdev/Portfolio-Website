@@ -80,35 +80,35 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" ref={rootRef} className="hairline-t bg-panel/40">
+    <section id="services" ref={rootRef} className="hairline-t bg-panel/10">
       <div className="mx-auto max-w-6xl px-5 py-16 sm:py-24 md:px-8 md:py-36">
         <div className="mb-10 flex flex-col gap-4 sm:mb-14 md:flex-row md:items-end md:justify-between">
           <div>
-            <p data-reveal className="mb-4 flex items-center gap-3 text-[11px] uppercase tracking-[0.4em] text-gold">
-              <span className="h-px w-8 bg-gold/60" />
-              Services
+            <p data-reveal className="mb-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-secondary font-bold">
+              <span className="h-[1px] w-8 bg-secondary/60" />
+              Core Competencies
             </p>
-            <h2 data-reveal className="display-xl text-3xl text-ink sm:text-5xl">
-              What I <span className="text-gold-gradient">do</span>
+            <h2 data-reveal className="display-xl text-3xl text-ink sm:text-5xl uppercase tracking-tight">
+              What I <span className="text-primary-gradient">Build</span>
             </h2>
           </div>
-          <p data-reveal className="max-w-sm text-[13px] leading-relaxed text-muted sm:text-sm">
-            Seven service areas, one standard: fast turnaround, clean execution, and 100% accuracy.
+          <p data-reveal className="max-w-sm text-xs leading-[1.7] text-muted sm:text-sm">
+            Focused on building scalable web apps, robust integrations, and responsive interfaces with modern tools.
           </p>
         </div>
 
         <ul>
           {services.map((service, i) => (
             <li key={service.title} data-reveal className="hairline-t last:hairline-b">
-              <div className="service-row group flex flex-col gap-2 py-5 sm:flex-row sm:items-center sm:gap-8 sm:py-8">
-                <span className="font-display text-sm text-gold/70 sm:w-12">
+              <div className="service-row group flex flex-col gap-2 py-6 sm:flex-row sm:items-center sm:gap-8 sm:py-9">
+                <span className="font-display text-xs text-secondary/70 sm:w-12 font-medium">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-display text-xl font-medium text-ink transition-colors duration-300 sm:w-80 sm:text-[1.7rem]">
+                <h3 className="font-display text-lg font-medium text-ink transition-colors duration-300 sm:w-80 sm:text-[1.5rem] tracking-wide">
                   {service.title}
                 </h3>
-                <p className="flex-1 text-sm leading-relaxed text-muted">{service.description}</p>
-                <ArrowUpRight className="hidden h-5 w-5 shrink-0 text-gold opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 sm:block" />
+                <p className="flex-1 text-xs sm:text-sm leading-[1.7] text-muted">{service.description}</p>
+                <ArrowUpRight className="hidden h-5 w-5 shrink-0 text-secondary opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 sm:block" />
               </div>
             </li>
           ))}

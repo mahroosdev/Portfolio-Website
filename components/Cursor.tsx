@@ -30,10 +30,16 @@ export default function Cursor() {
       ringY(e.clientY);
     };
     const onOver = (e: MouseEvent) => {
-      if ((e.target as HTMLElement).closest(HOVER_TARGETS)) ring.classList.add("is-hover");
+      if ((e.target as HTMLElement).closest(HOVER_TARGETS)) {
+        ring.classList.add("is-hover");
+        dot.classList.add("is-hover");
+      }
     };
     const onOut = (e: MouseEvent) => {
-      if ((e.target as HTMLElement).closest(HOVER_TARGETS)) ring.classList.remove("is-hover");
+      if ((e.target as HTMLElement).closest(HOVER_TARGETS)) {
+        ring.classList.remove("is-hover");
+        dot.classList.remove("is-hover");
+      }
     };
 
     window.addEventListener("mousemove", onMove);

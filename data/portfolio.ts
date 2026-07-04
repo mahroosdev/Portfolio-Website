@@ -3,104 +3,89 @@
 export const person = {
   name: "Mahroos Mahthie",
   fullName: "MFM Mahroos Mahthie",
-  roles: ["AI Data Specialist", "Front-End Developer", "Virtual Assistant", "Automation Builder"],
+  roles: ["Junior Software Engineer", "Full-Stack Developer", "AI-Assisted Developer"],
   tagline:
-    "I combine AI-powered data operations, front-end development, and Python automation to ship fast, accurate, high-quality work — across web, desktop, and data.",
+    "I design and build high-performance web applications, desktop/mobile-connected systems, and clean user interfaces. Focused on writing scalable code, optimizing system architecture, and delivering high-quality products.",
   location: "Sri Lanka · Remote worldwide",
+  contactLocation: "Valaichenai, Batticaloa, Eastern Province, Sri Lanka",
+  phone: "+94 74 252 7474 / +94 71 437 6113",
+  phones: [
+    { label: "+94 74 252 7474", href: "+94742527474" },
+    { label: "+94 71 437 6113", href: "+94714376113" },
+  ],
   availability: "Ready to start immediately",
-  email: "mahroosmahthie7@gmail.com",
+  email: "m.mahthie.dev@gmail.com",
+  resume: "/resume",
 };
 
 export const socials = [
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/mahroos-mahthie-b707a73a5",
+    href: "https://www.linkedin.com/in/mahthiedev/",
     icon: "linkedin",
   },
-  { label: "GitHub", href: "https://github.com/mahroos27", icon: "github" },
-  {
-    label: "Upwork",
-    href: "https://www.upwork.com/freelancers/~01cafe3e73de4fe3fe",
-    icon: "upwork",
-  },
+  { label: "GitHub", href: "https://github.com/mahroosdev", icon: "github" },
+  { label: "Facebook", href: "https://www.facebook.com/mmdev26", icon: "facebook" },
+  { label: "Instagram", href: "https://www.instagram.com/m.m_dev26", icon: "instagram" },
+  { label: "Twitter", href: "https://x.com/mm_dev26", icon: "twitter" },
 ] as const;
 
 export const stats = [
-  { value: 16, suffix: "+", label: "Live sites & tools shipped" },
-  { value: 2, suffix: "", label: "Desktop products built" },
-  { value: 100, suffix: "%", label: "Accuracy standard on data work" },
+  { value: 16, suffix: "+", label: "Live projects shipped" },
+  { value: 2, suffix: "", label: "Desktop apps built" },
 ];
 
 export const skillGroups = [
   {
-    title: "Data & Automation",
-    skills: ["Data Entry", "Data Cleaning", "Data Mining", "Python", "PDF → Excel/CSV", "Workflow Automation"],
+    title: "Frontend Architecture",
+    skills: ["React", "Next.js", "TypeScript", "JavaScript (ES6+)", "Tailwind CSS", "CSS3 / HTML5", "Responsive UI/UX"],
   },
   {
-    title: "AI & Quality",
-    skills: ["AI Tools", "Prompt Engineering", "Content QA", "Fact-Checking", "ML Basics", "Data Annotation"],
+    title: "Backend & Systems",
+    skills: ["Node.js", "Python", "RESTful APIs", "FastAPI", "WebSockets", "Express", "Databases (SQLite/MongoDB)"],
   },
   {
-    title: "Front-End Development",
-    skills: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "SEO Optimization"],
-  },
-  {
-    title: "VA, HR & Research",
-    skills: ["Email Management", "Scheduling", "HR Management", "Recruitment", "Market Research", "Social Media"],
+    title: "Tools & DevOps",
+    skills: ["Git", "GitHub", "Docker", "CI/CD Foundations", "Vite", "Electron", "DevTools", "Package Managers"],
   },
 ];
 
 export const services = [
   {
-    title: "Web Development",
+    title: "Frontend Architecture",
     description:
-      "Responsive websites, portfolios, landing pages, dashboards, and internal tools — clean builds with SEO-optimized pages.",
+      "Designing and implementing scalable, performant client-side architectures using React, Next.js, TypeScript, and modern styling frameworks.",
   },
   {
-    title: "AI & Data Operations",
+    title: "Full-Stack Engineering",
     description:
-      "High-accuracy data entry and management, PDF to Excel/CSV conversion, AI data labeling and annotation, Python scripting.",
+      "Building robust, high-performance web applications, integrating frontend user experiences with resilient Node.js and Python backend microservices.",
   },
   {
-    title: "Software Development",
+    title: "System Automation & Tooling",
     description:
-      "Desktop and web applications, automation tools, and internal dashboards built end-to-end — from Python desktop software to responsive front-ends.",
+      "Developing local-first desktop applications, system-level automation suites (Python, Electron), and multi-platform network utilities.",
   },
   {
-    title: "Automation & Tooling",
+    title: "Technical Leadership & Quality",
     description:
-      "Python workflow automation and purpose-built desktop or browser tools that remove repetitive work.",
-  },
-  {
-    title: "Virtual Assistance & Admin",
-    description:
-      "Full virtual assistant services: email management, scheduling, research, and admin coordination.",
-  },
-  {
-    title: "HR & Recruitment Support",
-    description:
-      "End-to-end recruitment support: sourcing, applicant tracking, HR data management, and admin operations.",
-  },
-  {
-    title: "Content, SEO & Research",
-    description:
-      "AI content fact-checking and QA, SEO-optimized content, social media management, and deep web/market research.",
+      "Driving clean code practices, testing, and security-first system designs. Collaborating effectively in team environments to deliver high-impact products.",
   },
 ];
 
 export const marqueeItems = [
+  "React",
+  "TypeScript",
+  "Next.js",
+  "Node.js",
+  "Tailwind CSS",
   "Python",
-  "JavaScript",
-  "AI Data Ops",
-  "HTML5 / CSS3",
-  "Automation",
-  "Prompt Engineering",
-  "Responsive Design",
-  "Data Annotation",
-  "SEO",
-  "Electron",
-  "Flutter",
+  "REST APIs",
+  "Git & GitHub",
+  "Full-Stack",
   "FastAPI",
+  "WebSockets",
+  "Electron",
 ];
 
 export type FeaturedProject = {
@@ -112,6 +97,7 @@ export type FeaturedProject = {
   highlights: string[];
   tech: string[];
   role: string;
+  github?: string;
   link?: { label: string; href: string };
   media: { src: string; alt: string }[];
   mobileShot?: { src: string; alt: string };
@@ -119,79 +105,63 @@ export type FeaturedProject = {
 
 export const featuredProjects: FeaturedProject[] = [
   {
-    id: "nexaflow",
-    name: "NexaFlow",
-    category: "Personal · Desktop Product",
-    status: "v1.0 — Windows, Android & Chrome",
-    description:
-      "A local-first desktop automation suite. NexaFlow records and replays mouse/keyboard workflows with a smart capture mode, scheduling, session stats, and consent-based remote control from an Android companion app or Chrome extension.",
-    highlights: [
-      "Workflow recorder with Smart and Full capture modes, playback speed control, and repeat/loop scheduling",
-      "Compact Focus Mode overlay with global hotkeys (F9 record, F10 play, F11 stop)",
-      "Android companion and Chrome MV3 extension pair over local Wi-Fi with expiring codes — remote access only when the desktop allows it",
-      "Packaged as a Windows installer with checksummed releases, user guide, and store-ready Android AAB",
-    ],
-    tech: ["Python", "Tkinter", "WebSockets", "Android", "Chrome Extension (MV3)", "PyInstaller", "Inno Setup"],
-    role: "Sole developer & product designer",
-    media: [
-      { src: "/assets/apps/nexaflow-desktop-1.png", alt: "NexaFlow desktop recorder — workflow capture screen" },
-      { src: "/assets/apps/nexaflow-desktop-2.png", alt: "NexaFlow Focus Mode overlay with record and playback controls" },
-    ],
-    mobileShot: { src: "/assets/apps/nexaflow-mobile-1.jpg", alt: "NexaFlow Android companion — playback screen" },
-  },
-  {
     id: "remotelink",
     name: "RemoteLink",
-    category: "Personal · Desktop + Mobile",
-    status: "Working build — Windows + Android",
+    category: "Desktop + Mobile Utility",
+    status: "Completed",
     description:
-      "A cross-platform remote control system: an Electron desktop engine streams the PC to a Flutter Android client over a custom WebSocket protocol, with pairing codes, multi-monitor support, and a full remote touchpad/keyboard.",
+      "Desktop/mobile remote-control prototype exploring local-network pairing, desktop/mobile UI flows, screen preview concepts, input-control planning, and secure connection handling.",
     highlights: [
-      "Desktop engine dashboard with live connection state, pairing hub, host IP detection, and event stream",
-      "Multi-monitor configuration with per-screen quality and FPS controls via the Desktop Duplication API",
-      "Android client with screen viewer, touchpad area, click/scroll controls, text-to-PC, and full modifier/function key support",
-      "Custom JSON message schema shared between desktop and mobile via a TypeScript package",
+      "Built a desktop engine dashboard with live connection state and a pairing hub.",
+      "Developed an Android client interface with screen viewer and touchpad area controls.",
+      "Implemented cross-platform communication via WebSockets."
     ],
-    tech: ["Electron", "React", "TypeScript", "Flutter", "WebSockets", "Vite"],
+    tech: ["Electron", "React", "TypeScript", "Flutter", "WebSockets"],
     role: "Sole developer",
+    github: "https://github.com/mahroosdev",
     media: [
-      { src: "/assets/apps/remotelink-desktop-1.png", alt: "RemoteLink desktop engine — Android device connected with live latency and bitrate metrics" },
-      { src: "/assets/apps/remotelink-desktop-2.png", alt: "RemoteLink monitor configuration with hardware interface preview" },
+      { src: "/assets/apps/remotelink-desktop-1.png", alt: "RemoteLink desktop dashboard showing device pairing and connection status" },
+      { src: "/assets/apps/remotelink-desktop-2.png", alt: "RemoteLink monitor configuration and desktop streaming settings" },
     ],
-    mobileShot: { src: "/assets/apps/remotelink-mobile-1.jpg", alt: "RemoteLink Android client — remote touchpad and mouse controls" },
+    mobileShot: { src: "/assets/apps/remotelink-mobile-1.jpg", alt: "RemoteLink mobile control interface" },
   },
+  {
+    id: "nexaflow",
+    name: "NexaFlow",
+    category: "Desktop Product",
+    status: "Completed",
+    description:
+      "A local-first desktop automation suite for recording and replaying workflows with smart capture and a focused overlay UI.",
+    highlights: [
+      "Built workflow recorder with multiple capture modes and scheduling features.",
+      "Implemented a compact focus mode overlay with global hotkeys.",
+      "Integrated secure local network pairing for Android companion apps."
+    ],
+    tech: ["Python", "Tkinter", "WebSockets", "Android", "Chrome Extension"],
+    role: "Sole developer",
+    github: "https://github.com/mahroosdev",
+    media: [
+      { src: "/assets/apps/nexaflow-desktop-1.png", alt: "NexaFlow desktop workflow automation dashboard" },
+      { src: "/assets/apps/nexaflow-desktop-2.png", alt: "NexaFlow Focus Mode overlay and workflow list editor" },
+    ],
+    mobileShot: { src: "/assets/apps/nexaflow-mobile-1.jpg", alt: "NexaFlow mobile companion interface" },
+  },
+
   {
     id: "nexaos",
-    name: "Amir / NexaOS",
-    category: "Personal · Flagship — Ongoing",
-    status: "In development — planning & Phase 0",
+    name: "Nexa Arc",
+    category: "Architecture Concept",
+    status: "In Progress",
     description:
-      "A local-first AI assistant designed to grow into an AI-integrated operating system experience. Amir runs a local model on ordinary hardware — conversations and data never leave the machine — and NexaOS is the long-term Linux-based system built around it.",
+      "AI-first desktop OS/platform concept built around Amir, local-first workflows, phased planning, governance documents, UI experiments, and security-focused architecture notes.",
     highlights: [
-      "100% local: chat, summarization, and document Q&A on-device via Ollama with small quantized models",
-      "Sized for real hardware — the first edition targets 8 GB RAM PCs with CPU-only inference",
-      "FastAPI backend, WebSocket token streaming, SQLite full-text search, and local vector retrieval",
-      "Staged roadmap with three hardware tiers (Lite / Standard / Pro) — no public release claimed yet",
+      "Explored local token streaming and prompt engineering via Ollama.",
+      "Prototyped a FastAPI backend and WebSocket communication layer for local assistant workflows.",
+      "Planned a staged OS/platform rollout focused on local-first data privacy, governance, and controlled feature expansion."
     ],
-    tech: ["Python", "FastAPI", "WebSockets", "SQLite", "Ollama", "Quantized GGUF models", "Linux"],
-    role: "Project architect & developer",
+    tech: ["Python", "FastAPI", "WebSockets", "SQLite", "Ollama"],
+    role: "Developer",
     media: [],
-  },
-  {
-    id: "nexapath",
-    name: "NexaPath",
-    category: "Personal · Web Platform",
-    description:
-      "An education and workforce innovation platform concept — certified learning, career pathways, and certificate verification for students, employers, and institutions.",
-    highlights: [
-      "Multi-audience landing experience for students, employers, and institutions",
-      "Certificate verification flow and structured program presentation",
-      "Fully responsive, SEO-ready front-end build",
-    ],
-    tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "SEO"],
-    role: "Sole designer & developer",
-    link: { label: "Visit live site", href: "https://nexapath.netlify.app/" },
-    media: [{ src: "/assets/screenshots/nexapath.png", alt: "NexaPath — education and workforce platform homepage" }],
   },
 ];
 
@@ -202,6 +172,7 @@ export type WebProject = {
   href: string;
   image: string;
   mobileImage?: string;
+  objectPosition?: string;
 };
 
 export type WebGroup = {
@@ -213,7 +184,7 @@ export type WebGroup = {
 export const webGroups: WebGroup[] = [
   {
     title: "Business Automation Tools",
-    note: "Demo tools with local demo modes — built around my AI data specialty",
+    note: "Demo tools with local demo modes — built around my AI data specialty.",
     projects: [
       {
         slug: "t-dataforge",
@@ -242,8 +213,8 @@ export const webGroups: WebGroup[] = [
     ],
   },
   {
-    title: "Nexa Tools — Offline-First Utilities",
-    note: "Browser tools that work fully offline, with local storage and PWA support",
+    title: "Web Tools & Applications",
+    note: "Functional web tools and utility interfaces built with modern web technologies.",
     projects: [
       {
         slug: "nexa-folio",
@@ -254,6 +225,14 @@ export const webGroups: WebGroup[] = [
         mobileImage: "/assets/screenshots/mobile/nexa-folio.png",
       },
       {
+        slug: "chroma-forge",
+        name: "Chroma",
+        description: "Color palette generator and contrast checker with export options.",
+        href: "https://chroma-forge.netlify.app/",
+        image: "/assets/screenshots/chroma-forge.png",
+        mobileImage: "/assets/screenshots/mobile/chroma-forge.png",
+      },
+      {
         slug: "nexa-scan",
         name: "Nexa Scan Suite",
         description: "Professional QR and barcode suite — generate, decode, and keep history, fully offline.",
@@ -261,83 +240,35 @@ export const webGroups: WebGroup[] = [
         image: "/assets/screenshots/nexa-scan.png",
         mobileImage: "/assets/screenshots/mobile/nexa-scan.png",
       },
-      {
-        slug: "ultra-theme-forge",
-        name: "Ultra Theme Forge",
-        description: "AI-powered mockup preview engine — 50 website types × 3 variants for 150 unique previews.",
-        href: "https://ultra-theme-forge.netlify.app/",
-        image: "/assets/screenshots/ultra-theme-forge.png",
-        mobileImage: "/assets/screenshots/mobile/ultra-theme-forge.png",
-      },
-      {
-        slug: "chroma-forge",
-        name: "Chroma Forge Pro",
-        description: "Professional color design system with specialized workspaces for web, UI/UX, and graphic design.",
-        href: "https://chroma-forge.netlify.app/",
-        image: "/assets/screenshots/chroma-forge.png",
-        mobileImage: "/assets/screenshots/mobile/chroma-forge.png",
-      },
-      {
-        slug: "nexa-vault",
-        name: "Nexa Vault Studio",
-        description: "Offline password studio with classic, passphrase, quantum, and PIN modes plus entropy scoring.",
-        href: "https://nexa-vault.netlify.app/",
-        image: "/assets/screenshots/nexa-vault.png",
-        mobileImage: "/assets/screenshots/mobile/nexa-vault.png",
-      },
-      {
-        slug: "nexa-dev",
-        name: "Nexa Dev",
-        description: "Client-side developer toolbox — URL formatter, UTM builder, copy tools, and JSON export.",
-        href: "https://nexa-dev.netlify.app/",
-        image: "/assets/screenshots/nexa-dev.png",
-        mobileImage: "/assets/screenshots/mobile/nexa-dev.png",
-      },
     ],
   },
   {
     title: "Brand Concept Sites",
-    note: "High-end landing page concepts — typography, motion, and product storytelling",
+    note: "High-end landing page concepts — typography, motion, and product storytelling.",
     projects: [
       {
-        slug: "aura-w",
-        name: "AURA — Premium Coffee",
-        description: "Single-origin coffee brand concept with editorial design.",
-        href: "https://aura-w.netlify.app/",
-        image: "/assets/screenshots/aura-w.png",
-        mobileImage: "/assets/screenshots/mobile/aura-w.png",
+        slug: "savora-web",
+        name: "SAVORA",
+        description: "Fine dining restaurant brand concept with elegant, warm visual identity.",
+        href: "https://savora-web.netlify.app/",
+        image: "/assets/screenshots/savora-web.png",
+        mobileImage: "/assets/screenshots/mobile/savora-web.png",
       },
       {
-        slug: "noir-web",
-        name: "NOIR — Audio Instruments",
-        description: "Premium audio hardware brand concept.",
-        href: "https://noir-web.netlify.app/",
-        image: "/assets/screenshots/noir-web.png",
-        mobileImage: "/assets/screenshots/mobile/noir-web.png",
+        slug: "wanderlux-web",
+        name: "WANDERLUX",
+        description: "Premium travel agency concept with destination showcase and booking flow.",
+        href: "https://wanderlux-web.netlify.app/",
+        image: "/assets/screenshots/wanderlux-web.png",
+        mobileImage: "/assets/screenshots/mobile/wanderlux-web.png",
       },
       {
-        slug: "obsidian-xpro",
-        name: "Obsidian X Pro",
-        description: "AXIOM Labs flagship camera-phone launch concept — bold review-style product reveal.",
-        href: "https://obsidian-xpro.netlify.app/",
-        image: "/assets/screenshots/obsidian-xpro.png",
-        mobileImage: "/assets/screenshots/mobile/obsidian-xpro.png",
-      },
-      {
-        slug: "zenith-s",
-        name: "Zenith V-1 — Watch",
-        description: "Titanium mechanical watch concept — product storytelling.",
-        href: "https://zenith-s.netlify.app/",
-        image: "/assets/screenshots/zenith-s.png",
-        mobileImage: "/assets/screenshots/mobile/zenith-s.png",
-      },
-      {
-        slug: "zenith-w",
-        name: "The Zenith V-One",
-        description: "Alternate Zenith concept exploring a different art direction.",
-        href: "https://zenith-w.netlify.app/",
-        image: "/assets/screenshots/zenith-w.png",
-        mobileImage: "/assets/screenshots/mobile/zenith-w.png",
+        slug: "novakreativ-web",
+        name: "NOVAKREATIV",
+        description: "Creative digital agency concept with bold dark theme and portfolio grid.",
+        href: "https://novakreativ-web.netlify.app/",
+        image: "/assets/screenshots/novakreativ-web.png",
+        mobileImage: "/assets/screenshots/mobile/novakreativ-web.png",
       },
     ],
   },
@@ -346,55 +277,70 @@ export const webGroups: WebGroup[] = [
     note: "A hub of demo project concepts",
     projects: [
       {
-        slug: "demo-project-web",
-        name: "Portfolio Pro",
+        slug: "50-projects",
+        name: "50 Live Projects",
         description: "Demo project hub presenting multiple website concepts in one place.",
         href: "https://demo-project-web.netlify.app/",
-        image: "/assets/screenshots/demo-project-web.png",
-        mobileImage: "/assets/screenshots/mobile/demo-project-web.png",
+        image: "/assets/demo 50 projects website/15-1.png",
+        mobileImage: "/assets/demo 50 projects website/15-2.png",
+        objectPosition: "object-center",
       },
     ],
   },
 ];
 
+
+
 export const experience = [
   {
-    period: "Oct 2025 — Present",
-    title: "AI Data Specialist, Front-End Developer & Virtual Assistant",
-    org: "Self-Employed / Freelance",
+    period: "2025 — Present",
+    title: "Independent Software Developer",
+    org: "Self-Directed Projects & Skill Development",
     points: [
-      "Automate data entry and manage structured databases using Python & AI tools with 100% accuracy",
-      "Convert complex PDF documents into clean, analysis-ready Excel and CSV formats",
-      "Develop responsive websites, portfolios, landing pages, dashboards, and internal tools",
-      "Fact-check and QA AI-generated content for accuracy, SEO compliance, and professionalism",
-      "Provide full virtual assistant services: email management, scheduling, and admin coordination",
-    ],
-  },
-  {
-    period: "2 Years",
-    title: "Social Media Manager & Digital Content Strategist",
-    org: "Freelance / Agency",
-    points: [
-      "Managed multiple client social media accounts driving organic engagement and audience growth",
-      "Created SEO-optimized content using modern AI tools to elevate brand visibility",
-      "Conducted market research to identify digital trends and inform content strategy",
-    ],
-  },
-  {
-    period: "Freelance",
-    title: "HR & Recruitment Support Specialist",
-    org: "Administrative & HR Operations",
-    points: [
-      "Supported end-to-end recruitment: sourcing, applicant tracking, and HR data management",
-      "Coordinated cross-department administrative operations ensuring efficient workflow",
-      "Applied IT automation to streamline repetitive HR tasks and improve team productivity",
+      "Designed and developed full-stack app prototypes and developer-focused utility tools using React, TypeScript, and modern web frameworks.",
+      "Practiced component-based architecture, responsive design, UI polish, debugging, and iterative software improvement.",
+      "Built desktop and mobile-connected applications experimenting with Python, Electron, and WebSockets.",
     ],
   },
 ];
 
-export const certifications = [
-  { title: "Diploma in AI & IT", org: "Cased Institute", year: "2026" },
+export const education = [
+  { title: "Diploma in Office Management", org: "Cased Institute", year: "2027" },
+  { title: "Diploma in IT & AI", org: "Cased Institute", year: "2026" },
   { title: "Diploma in HR Management", org: "Cased Institute", year: "2025" },
-  { title: "Certified Web Developer", org: "Orion International Campus", year: "2024" },
-  { title: "Python Programming", org: "I-Tech Academy", year: "2024" },
 ];
+
+export const certifications = [
+  {
+    title: "Front-End Web Development",
+    org: "University of Moratuwa Open Learning Platform — 2026",
+    image: "/assets/certificates/front-end-web-development.jpg",
+  },
+  {
+    title: "Web Design for Beginners",
+    org: "University of Moratuwa Open Learning Platform — 2026",
+    image: "/assets/certificates/web-design-for-beginners.jpg",
+  },
+  {
+    title: "Introduction to Software Engineering",
+    org: "IBM — 2026",
+    image: "/assets/certificates/introduction-to-software-engineering.jpg",
+  },
+  {
+    title: "Android App Development for Beginners",
+    org: "Simplilearn — 2026",
+    image: "/assets/certificates/android-app-development-beginners.jpg",
+  },
+  {
+    title: "AI Agents and Agentic AI with Python & Generative AI",
+    org: "Vanderbilt University — Coursera — 2026",
+    image: "/assets/certificates/ai-agents-python-generative-ai.jpg",
+  },
+  {
+    title: "Python Programming",
+    org: "GUVI HCL — 2026",
+    image: "/assets/certificates/python-programming-certificate.png",
+  },
+];
+
+

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { socials } from "@/data/portfolio";
-import { socialIcons } from "@/components/Icons";
+import { person, socials } from "@/data/portfolio";
+import { socialIcons, MailIcon } from "@/components/Icons";
 import { scrollToHash } from "@/lib/anim";
 
 const links = [
@@ -14,14 +14,38 @@ const links = [
 ];
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -80% 0px" }
+    );
+
+    links.forEach((l) => {
+      if (l.hash.startsWith("#")) {
+        const el = document.querySelector(l.hash);
+        if (el) observer.observe(el);
+      }
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -41,18 +65,18 @@ export default function Nav() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-[90] transition-all duration-500 ${
-          scrolled ? "backdrop-blur-md bg-bg/70 hairline-b" : "bg-transparent"
+        className={`fixed inset-x-0 top-0 z-[90] transition-all duration-500 border-b border-line backdrop-blur-md ${
+          scrolled ? "bg-panel/90 shadow-md shadow-black/20" : "bg-bg/50"
         }`}
       >
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
           <a
             href="#top"
             onClick={go("body")}
-            className="font-display text-base font-semibold tracking-[0.2em] text-ink"
+            className="font-display text-sm font-semibold tracking-[0.25em] text-ink uppercase transition-opacity hover:opacity-85"
             aria-label="Back to top"
           >
-            PORTFOLIO<span className="text-gold">.</span>
+            PORTFOLIO<span className="text-primary">.</span>
           </a>
 
           <ul className="hidden items-center gap-8 md:flex">
@@ -60,18 +84,35 @@ export default function Nav() {
               <li key={l.hash}>
                 <a
                   href={l.hash}
-                  onClick={go(l.hash)}
-                  className="text-[13px] tracking-[0.14em] uppercase text-muted transition-colors hover:text-ink"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToHash(l.hash);
+                  }}
+                  className={`text-[12px] tracking-[0.16em] uppercase transition-colors duration-300 ${
+                    activeSection === l.hash ? "text-secondary" : "text-muted hover:text-secondary"
+                  }`}
                 >
                   {l.label}
                 </a>
               </li>
             ))}
+            {person.resume && (
+              <li>
+                <a
+                  href={person.resume}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[12px] tracking-[0.16em] uppercase text-muted transition-colors hover:text-secondary"
+                >
+                  Resume
+                </a>
+              </li>
+            )}
           </ul>
 
           <div className="hidden items-center gap-4 md:flex">
-            {socials.map((s) => {
-              const Icon = socialIcons[s.icon];
+            {socials.filter(s => s.icon === "linkedin" || s.icon === "github").map((s) => {
+              const Icon = socialIcons[s.icon as "linkedin" | "github"];
               return (
                 <a
                   key={s.label}
@@ -80,12 +121,20 @@ export default function Nav() {
                   rel="noopener noreferrer"
                   aria-label={s.label}
                   title={s.label}
-                  className="text-muted transition-colors hover:text-gold"
+                  className="text-muted transition-colors hover:text-secondary"
                 >
-                  <Icon className="h-[18px] w-[18px]" />
+                  <Icon className="h-[17px] w-[17px]" />
                 </a>
               );
             })}
+            <a
+              href={`mailto:${person.email}`}
+              aria-label="Email"
+              title="Email"
+              className="text-muted transition-colors hover:text-secondary"
+            >
+              <MailIcon className="h-[18px] w-[18px]" />
+            </a>
           </div>
 
           <button
@@ -102,7 +151,7 @@ export default function Nav() {
 
       {/* mobile fullscreen menu */}
       <div
-        className={`fixed inset-0 z-[85] flex flex-col justify-center bg-bg px-8 transition-opacity duration-400 md:hidden ${
+        className={`fixed inset-0 z-[85] flex flex-col justify-center bg-bg/98 backdrop-blur-xl px-8 transition-opacity duration-400 md:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
@@ -116,16 +165,32 @@ export default function Nav() {
               <a
                 href={l.hash}
                 onClick={go(l.hash)}
-                className="display-xl block py-2 text-5xl text-ink transition-colors hover:text-gold"
+                className="display-xl block py-2 text-4xl tracking-tight text-ink transition-colors hover:text-primary"
               >
                 {l.label}
               </a>
             </li>
           ))}
+          {person.resume && (
+            <li
+              style={{ transitionDelay: open ? `${links.length * 60 + 100}ms` : "0ms" }}
+              className={`transition-all duration-500 ${open ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}`}
+            >
+              <a
+                href={person.resume}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setOpen(false)}
+                className="display-xl block py-2 text-4xl tracking-tight text-ink transition-colors hover:text-secondary"
+              >
+                Resume
+              </a>
+            </li>
+          )}
         </ul>
         <div className="mt-12 flex items-center gap-6">
-          {socials.map((s) => {
-            const Icon = socialIcons[s.icon];
+          {socials.filter(s => s.icon === "linkedin" || s.icon === "github").map((s) => {
+            const Icon = socialIcons[s.icon as "linkedin" | "github"];
             return (
               <a
                 key={s.label}
@@ -133,12 +198,19 @@ export default function Nav() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="text-muted transition-colors hover:text-gold"
+                className="text-muted transition-colors hover:text-secondary"
               >
                 <Icon className="h-6 w-6" />
               </a>
             );
           })}
+          <a
+            href={`mailto:${person.email}`}
+            aria-label="Email"
+            className="text-muted transition-colors hover:text-secondary"
+          >
+            <MailIcon className="h-6 w-6" />
+          </a>
         </div>
       </div>
     </>

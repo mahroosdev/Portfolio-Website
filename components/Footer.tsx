@@ -1,6 +1,7 @@
 "use client";
 
 import { person, socials } from "@/data/portfolio";
+import { socialIcons } from "@/components/Icons";
 import { scrollToHash } from "@/lib/anim";
 
 export default function Footer() {
@@ -11,20 +12,30 @@ export default function Footer() {
           © {new Date().getFullYear()} {person.fullName}
         </p>
 
-        {/* plain-text site labels (no icons, not linked) — centered to the page */}
-        <div className="flex items-center justify-center gap-2 text-muted sm:justify-self-center">
-          {socials.map((s, i) => (
-            <span key={s.label} className="flex items-center gap-2">
-              {i > 0 && <span className="text-line">·</span>}
-              {s.label}
-            </span>
-          ))}
+        {/* social media icons */}
+        <div className="flex justify-center gap-5 sm:justify-self-center">
+          {socials.map((s) => {
+            const Icon = socialIcons[s.icon];
+            return (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                title={s.label}
+                className="text-muted transition-colors hover:text-primary"
+              >
+                <Icon className="h-[18px] w-[18px]" />
+              </a>
+            );
+          })}
         </div>
 
         <button
           onClick={() => scrollToHash("body")}
           data-cursor-hover
-          className="text-center transition-colors hover:text-gold sm:justify-self-end sm:text-right"
+          className="text-center transition-colors hover:text-primary sm:justify-self-end sm:text-right"
         >
           Back to top ↑
         </button>

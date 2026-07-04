@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef, useState, type MouseEvent } from "react";
-import { person, socials } from "@/data/portfolio";
-import { socialIcons, MailIcon } from "@/components/Icons";
+import { person } from "@/data/portfolio";
+import { MailIcon } from "@/components/Icons";
 import { useSectionReveal } from "@/lib/anim";
 
 function MagneticButton({ children, href }: { children: React.ReactNode; href: string }) {
@@ -27,7 +27,7 @@ function MagneticButton({ children, href }: { children: React.ReactNode; href: s
       onMouseMove={onMove}
       onMouseLeave={() => setOffset({ x: 0, y: 0 })}
       style={{ transform: `translate(${offset.x}px, ${offset.y}px)` }}
-      className="inline-flex items-center gap-3 rounded-full bg-gold px-9 py-4.5 text-base font-medium text-bg transition-transform duration-200 ease-out hover:scale-[1.03]"
+      className="inline-flex items-center gap-3 rounded-full border-2 border-primary bg-primary px-8 py-4 sm:px-10 sm:py-5 text-xs font-bold uppercase tracking-widest text-bg transition-all duration-300 hover:bg-transparent hover:text-primary hover:scale-[1.02]"
     >
       {children}
     </a>
@@ -39,49 +39,51 @@ export default function Contact() {
   useSectionReveal(rootRef);
 
   return (
-    <section id="contact" ref={rootRef} className="hairline-t relative overflow-hidden">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/[0.07] blur-[140px]" />
+    <section id="contact" ref={rootRef} className="hairline-t relative overflow-hidden flex flex-1 flex-col">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[560px] w-[560px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.04] blur-[140px]" />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center px-5 py-20 text-center sm:py-28 md:px-8 md:py-44">
-        <p data-reveal className="mb-6 text-[11px] uppercase tracking-[0.4em] text-gold">
-          Have a project in mind?
+      <div className="relative mx-auto flex max-w-6xl flex-1 flex-col items-center justify-center px-5 py-16 text-center sm:py-24 md:px-8">
+        <p data-reveal className="mb-6 text-[10px] uppercase tracking-[0.4em] text-secondary font-bold">
+          Get in touch
         </p>
 
-        <h2 data-reveal className="display-xl text-[13vw] text-ink sm:text-7xl md:text-8xl">
-          LET&apos;S WORK
+        <h2 data-reveal className="display-xl text-[9vw] leading-[1.05] text-ink sm:text-7xl md:text-8xl uppercase tracking-tight">
+          Let&apos;s build something
           <br />
-          <span className="text-gold-gradient">TOGETHER</span>
+          <span className="text-primary-gradient">exceptional</span>
         </h2>
 
         <div data-reveal className="mt-8 sm:mt-12">
           <MagneticButton href={`mailto:${person.email}`}>
-            <MailIcon className="h-5 w-5" />
+            <MailIcon className="h-4 w-4" />
             {person.email}
           </MagneticButton>
         </div>
 
-        <div data-reveal className="mt-8 flex items-center gap-7 sm:mt-10">
-          {socials.map((s) => {
-            const Icon = socialIcons[s.icon];
-            return (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.label}
-                title={s.label}
-                className="text-muted transition-all duration-300 hover:-translate-y-1 hover:text-gold"
-              >
-                <Icon className="h-6 w-6" />
-              </a>
-            );
-          })}
-        </div>
+        <div data-reveal className="mt-10 flex w-full max-w-3xl flex-col items-center gap-5 text-center">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm font-medium text-ink">
+            {person.phones.map((phone, index) => (
+              <span key={phone.href} className="flex items-center gap-x-4">
+                <a
+                  href={`tel:${phone.href}`}
+                  className="transition-colors hover:text-primary"
+                >
+                  {phone.label}
+                </a>
+                {index < person.phones.length - 1 && <span className="h-3 w-px bg-line" />}
+              </span>
+            ))}
+          </div>
 
-        <p data-reveal className="mt-10 text-sm text-muted">
-          {person.location} · {person.availability}
-        </p>
+          <div className="h-px w-16 bg-primary/45" />
+
+          <div className="flex max-w-xl flex-col items-center gap-2 text-center text-sm leading-relaxed text-muted">
+            <p>{person.contactLocation}</p>
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-secondary">
+              {person.availability}
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

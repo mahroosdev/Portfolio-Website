@@ -2,15 +2,16 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Mahroos Mahthie — AI Data Specialist · Front-End Developer · Virtual Assistant",
+  title: "Mahroos Mahthie — Junior Software Engineer · AI-Assisted Developer",
   description:
-    "Portfolio of MFM Mahroos Mahthie — AI-powered data operations, front-end web development, Python automation, and virtual assistance. Builder of NexaFlow, RemoteLink, and the Amir/NexaOS local-first AI project.",
+    "Portfolio of MFM Mahroos Mahthie — Junior Software Engineer and AI-assisted developer. Builder of NexaFlow, RemoteLink, responsive web apps, and local-first applications.",
   keywords: [
-    "AI Data Specialist",
-    "Front-End Developer",
-    "Virtual Assistant",
-    "Python Automation",
-    "Sri Lanka",
+    "Junior Software Engineer",
+    "Full-Stack Developer",
+    "AI-Assisted Developer",
+    "React Developer",
+    "Next.js Developer",
+    "Python Developer",
     "Mahroos Mahthie",
   ],
 };
@@ -29,7 +30,6 @@ export default function RootLayout({
       <body className="grain min-h-svh">
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           rel="stylesheet"
           precedence="default"
