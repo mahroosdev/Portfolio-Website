@@ -1,56 +1,41 @@
 # Mahroos Mahthie Portfolio
 
-Personal portfolio website for **MFM Mahroos Mahthie**, a Junior Software Engineer and AI-assisted developer. The site presents selected web projects, desktop/mobile prototypes, education, certifications, resume details, and contact information.
+A modern personal portfolio website of **MFM Mahroos Mahthie**, a Junior Software Engineer and AI-assisted developer from Sri Lanka.
+
+This portfolio showcases my web projects, desktop and mobile-connected prototypes, technical skills, education, certifications, resume, and contact details.
+
+## Live Website
+
+🌐 **Portfolio**: [portfolio-mahroos.netlify.app](https://portfolio-mahroos.netlify.app/)
+
+## About This Project
+
+This website was built to present my work in a clean, professional, and responsive way. It includes:
+
+- Personal introduction and profile section
+- Technical skills and service areas
+- Featured software projects
+- Web project showcase
+- Education and certifications
+- Online resume page
+- Contact section with social links
 
 ## Tech Stack
 
-- Next.js 16 App Router with static export
-- TypeScript and React
-- Tailwind CSS v4
-- GSAP, Framer Motion, and Lenis for motion and scrolling
-- Static assets served from `public/`
+- **Framework**: Next.js 16
+- **Language**: TypeScript
+- **UI**: React, Tailwind CSS
+- **Animation**: GSAP, Framer Motion, Lenis
+- **Deployment**: Netlify static export
 
-## Getting Started
+## Project Structure
 
-Install dependencies:
-
-```bash
-npm install
-```
-
-Start the local development server:
-
-```bash
-npm run dev
-```
-
-Open `http://localhost:3000`.
-
-## Production Build
-
-```bash
-npm run build
-```
-
-The static production site is generated in the `out/` folder.
-
-## Deploy With Netlify
-
-When connecting this GitHub repository to Netlify, use:
-
-- Build command: `npm run build`
-- Publish directory: `out`
-
-Netlify will rebuild the static site automatically on each push.
-
-## Project Content
-
-Main editable content is stored in:
-
-- `data/portfolio.ts` - profile details, links, skills, projects, education, certifications, and contact information
-- `public/assets/` - screenshots, certificates, and app images
-- `public/RESUME.pdf` and `public/RESUME.docx` - downloadable resume files
-
-## Repository Notes
-
-Generated folders and local-only files are ignored, including `node_modules/`, `.next/`, `out/`, logs, scratch files, and `out.zip`. Commit the source files and public assets, then let Netlify build the final hosted version.
+```txt
+portfolio-website/
+├── app/                 # Next.js app pages and layouts
+├── components/          # Reusable UI components
+├── data/                # Portfolio content and project data
+├── public/              # Images, certificates, resume, and static assets
+├── scripts/             # Utility scripts
+├── next.config.ts       # Next.js export configuration
+└── package.json         # Project dependencies and scripts

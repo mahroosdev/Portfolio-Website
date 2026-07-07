@@ -44,6 +44,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# local QA artifacts
-/scripts/qa/
-/scripts/*-log.txt
+# AI assistant config
+AGENTS.md
+CLAUDE.md
+
+# dev/QA scripts
+/scripts/
+
+# Windows shortcuts
+*.url
