@@ -273,8 +273,8 @@ export const webGroups: WebGroup[] = [
     ],
   },
   {
-    title: "Demo Hub",
-    note: "A hub of demo project concepts",
+    title: "Mini Projects & Experiments",
+    note: "Standalone web tools and mini projects built for practice and exploration.",
     projects: [
       {
         slug: "50-projects",
@@ -284,6 +284,14 @@ export const webGroups: WebGroup[] = [
         image: "/assets/demo 50 projects website/15-1.png",
         mobileImage: "/assets/demo 50 projects website/15-2.png",
         objectPosition: "object-center",
+      },
+      {
+        slug: "calculator-pro",
+        name: "Calculator Pro",
+        description: "Standard and scientific calculator with history, memory keys, and full keyboard support — works fully offline.",
+        href: "/calculator/index.html",
+        image: "/assets/screenshots/calculator-pro.png",
+        mobileImage: "/assets/screenshots/mobile/calculator-pro.png",
       },
     ],
   },
