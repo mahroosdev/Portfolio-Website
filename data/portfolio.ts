@@ -305,7 +305,6 @@ export const experience = [
 ];
 
 export const education = [
-  { title: "Diploma in Office Management", org: "Cased Institute", year: "2027" },
   { title: "Diploma in IT & AI", org: "Cased Institute", year: "2026" },
   { title: "Diploma in HR Management", org: "Cased Institute", year: "2025" },
 ];
