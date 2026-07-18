@@ -1,8 +1,24 @@
 "use client";
 
 import { person, socials } from "@/data/portfolio";
-import { socialIcons } from "@/components/Icons";
+import { socialIcons, TikTokIcon, YouTubeIcon } from "@/components/Icons";
 import { scrollToHash } from "@/lib/anim";
+
+const footerSocials = [
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@mm_dev26",
+    Icon: YouTubeIcon,
+  },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@m.m_dev",
+    Icon: TikTokIcon,
+  },
+  ...socials
+    .filter((social) => social.icon !== "linkedin" && social.icon !== "github")
+    .map((social) => ({ ...social, Icon: socialIcons[social.icon] })),
+];
 
 export default function Footer() {
   return (
@@ -14,16 +30,16 @@ export default function Footer() {
 
         {/* social media icons */}
         <div className="flex justify-center gap-5 sm:justify-self-center">
-          {socials.map((s) => {
-            const Icon = socialIcons[s.icon];
+          {footerSocials.map((social) => {
+            const Icon = social.Icon;
             return (
               <a
-                key={s.label}
-                href={s.href}
+                key={social.label}
+                href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={s.label}
-                title={s.label}
+                aria-label={social.label}
+                title={social.label}
                 className="text-muted transition-colors hover:text-primary"
               >
                 <Icon className="h-[18px] w-[18px]" />

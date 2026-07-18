@@ -185,7 +185,11 @@ function MobileCard({
           src={project.mobileImage ?? project.image}
           alt={`${project.name} — mobile`}
           loading="lazy"
-          className={`h-full w-full object-cover ${project.objectPosition ?? "object-top"}`}
+          className={`h-full w-full ${
+            project.mobileFit === "contain"
+              ? "object-contain object-center"
+              : `object-cover ${project.objectPosition ?? "object-top"}`
+          } ${project.mobileZoom ? "scale-[1.08] origin-center" : ""}`}
         />
       </div>
       <div className="p-3 border-t border-line/60" style={{ height: `${CAPTION_PX}px` }}>

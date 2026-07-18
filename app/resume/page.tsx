@@ -92,7 +92,7 @@ export default function ResumePage() {
       href: "https://github.com/mahroosdev",
     },
     {
-      name: "50 Live Projects",
+      name: "Web Project Showcase",
       stack: "React · Next.js · JavaScript · Netlify",
       description:
         "Responsive web app portfolio including dashboards, PDF/data utilities, QR/barcode interfaces, and portfolio sites with reusable UI components and cross-device testing.",

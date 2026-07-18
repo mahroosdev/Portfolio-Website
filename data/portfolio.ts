@@ -118,7 +118,8 @@ export const featuredProjects: FeaturedProject[] = [
     ],
     tech: ["Electron", "React", "TypeScript", "Flutter", "WebSockets"],
     role: "Sole developer",
-    github: "https://github.com/mahroosdev",
+    github: "https://github.com/mahroosdev/RemoteLink",
+    link: { label: "Get App", href: "https://remotelink.netlify.app/" },
     media: [
       { src: "/assets/apps/remotelink-desktop-1.png", alt: "RemoteLink desktop dashboard showing device pairing and connection status" },
       { src: "/assets/apps/remotelink-desktop-2.png", alt: "RemoteLink monitor configuration and desktop streaming settings" },
@@ -139,7 +140,8 @@ export const featuredProjects: FeaturedProject[] = [
     ],
     tech: ["Python", "Tkinter", "WebSockets", "Android", "Chrome Extension"],
     role: "Sole developer",
-    github: "https://github.com/mahroosdev",
+    github: "https://github.com/mahroosdev/NexaFlow",
+    link: { label: "Get App", href: "https://web-nexaflow.netlify.app/" },
     media: [
       { src: "/assets/apps/nexaflow-desktop-1.png", alt: "NexaFlow desktop workflow automation dashboard" },
       { src: "/assets/apps/nexaflow-desktop-2.png", alt: "NexaFlow Focus Mode overlay and workflow list editor" },
@@ -172,6 +174,8 @@ export type WebProject = {
   href: string;
   image: string;
   mobileImage?: string;
+  mobileFit?: "cover" | "contain";
+  mobileZoom?: boolean;
   objectPosition?: string;
 };
 
@@ -263,12 +267,12 @@ export const webGroups: WebGroup[] = [
         mobileImage: "/assets/screenshots/mobile/wanderlux-web.png",
       },
       {
-        slug: "novakreativ-web",
-        name: "NOVAKREATIV",
-        description: "Creative digital agency concept with bold dark theme and portfolio grid.",
-        href: "https://novakreativ-web.netlify.app/",
-        image: "/assets/screenshots/novakreativ-web.png",
-        mobileImage: "/assets/screenshots/mobile/novakreativ-web.png",
+        slug: "vertex-it-solutions",
+        name: "VERTEX IT SOLUTIONS",
+        description: "Responsive digital services site focused on practical technology solutions and business growth.",
+        href: "/assets/webs/vertex-it-solutions/index.html",
+        image: "/assets/webs/images/ChatGPT Image Jul 18, 2026, 02_12_30 AM.png",
+        mobileImage: "/assets/webs/images/ChatGPT Image Jul 18, 2026, 02_12_34 AM.png",
       },
     ],
   },
@@ -277,21 +281,43 @@ export const webGroups: WebGroup[] = [
     note: "Standalone web tools and mini projects built for practice and exploration.",
     projects: [
       {
-        slug: "50-projects",
-        name: "50 Live Projects",
-        description: "Demo project hub presenting multiple website concepts in one place.",
-        href: "https://demo-project-web.netlify.app/",
-        image: "/assets/demo 50 projects website/15-1.png",
-        mobileImage: "/assets/demo 50 projects website/15-2.png",
-        objectPosition: "object-center",
-      },
-      {
         slug: "calculator-pro",
         name: "Calculator Pro",
         description: "Standard and scientific calculator with history, memory keys, and full keyboard support — works fully offline.",
         href: "/calculator/index.html",
         image: "/assets/screenshots/calculator-pro.png",
         mobileImage: "/assets/screenshots/mobile/calculator-pro.png",
+        mobileFit: "contain",
+        mobileZoom: true,
+      },
+      {
+        slug: "simon-says",
+        name: "Simon Says",
+        description: "Interactive memory game with progressive pattern challenges, sound cues, and responsive controls.",
+        href: "/assets/webs/Simon-Game-Project/index.html",
+        image: "/assets/webs/images/ChatGPT Image Jul 18, 2026, 02_12_35 AM.png",
+        mobileImage: "/assets/webs/images/simon-says-mobile.png",
+        mobileFit: "contain",
+        mobileZoom: true,
+      },
+      {
+        slug: "dice-duel",
+        name: "Dice Duel",
+        description: "Two-player browser dice game with instant randomized results and a polished responsive interface.",
+        href: "/assets/webs/dice-game/index.html",
+        image: "/assets/webs/images/ChatGPT Image Jul 18, 2026, 02_12_38 AM.png",
+        mobileImage: "/assets/webs/images/dice-duel-mobile.png",
+        mobileFit: "contain",
+        mobileZoom: true,
+      },
+      {
+        slug: "web-project-showcase",
+        name: "Web Project Showcase",
+        description: "Curated project hub presenting a broad collection of website concepts and frontend experiments.",
+        href: "https://demo-project-web.netlify.app/",
+        image: "/assets/demo 50 projects website/15-1.png",
+        mobileImage: "/assets/demo 50 projects website/15-2.png",
+        objectPosition: "object-center",
       },
     ],
   },
@@ -320,12 +346,12 @@ export const education = [
 export const certifications = [
   {
     title: "Front-End Web Development",
-    org: "University of Moratuwa Open Learning Platform — 2026",
+    org: "University of Moratuwa — 2026",
     image: "/assets/certificates/front-end-web-development.jpg",
   },
   {
     title: "Web Design for Beginners",
-    org: "University of Moratuwa Open Learning Platform — 2026",
+    org: "University of Moratuwa — 2026",
     image: "/assets/certificates/web-design-for-beginners.jpg",
   },
   {
@@ -340,12 +366,12 @@ export const certifications = [
   },
   {
     title: "AI Agents and Agentic AI with Python & Generative AI",
-    org: "Vanderbilt University — Coursera — 2026",
+    org: "Vanderbilt University — 2026",
     image: "/assets/certificates/ai-agents-python-generative-ai.jpg",
   },
   {
     title: "Python Programming",
-    org: "GUVI HCL — 2026",
+    org: "GUVI HCL — 2025",
     image: "/assets/certificates/python-programming-certificate.png",
   },
 ];
